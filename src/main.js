@@ -56,29 +56,17 @@ document.querySelector('#app').innerHTML = `
     </div>
     
     <div class="hero-visual">
-      <div class="brain-wave-animation">
-        <div class="brain-container">
-          <div class="brain-icon">🧠</div>
-          <div class="brain-pulse-rings">
-            <div class="pulse-ring"></div>
-            <div class="pulse-ring"></div>
-            <div class="pulse-ring"></div>
-          </div>
-        </div>
-        <div class="advanced-wave-lines">
-          <div class="wave-line eeg-alpha" data-frequency="8-13"></div>
-          <div class="wave-line eeg-beta" data-frequency="13-30"></div>
-          <div class="wave-line eeg-gamma" data-frequency="30-100"></div>
-          <div class="wave-line eeg-theta" data-frequency="4-8"></div>
-          <div class="wave-line eeg-delta" data-frequency="0.5-4"></div>
-        </div>
-        <div class="data-stream">
-          <div class="data-bit">1</div>
-          <div class="data-bit">0</div>
-          <div class="data-bit">1</div>
-          <div class="data-bit">1</div>
-          <div class="data-bit">0</div>
-        </div>
+      <div class="video-container">
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/5fpGTE3aIw0" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>

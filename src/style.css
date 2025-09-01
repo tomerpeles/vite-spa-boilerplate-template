@@ -642,6 +642,29 @@ body {
   50% { opacity: 1; }
 }
 
+/* Video Container Styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-large);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
 /* Section Animations */
 @keyframes slideInUp {
   from {
