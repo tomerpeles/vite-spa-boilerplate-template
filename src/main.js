@@ -15,30 +15,69 @@ document.querySelector('#app').innerHTML = `
     </div>
   </nav>
 
+  <!-- Background Elements -->
+  <div class="bg-particles"></div>
+  <div class="bg-grid"></div>
+
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-background-effects">
+      <div class="floating-elements">
+        <div class="floating-element">{ }</div>
+        <div class="floating-element">[ ]</div>
+        <div class="floating-element">< /></div>
+        <div class="floating-element">λ</div>
+        <div class="floating-element">∆</div>
+        <div class="floating-element">∑</div>
+      </div>
+    </div>
+    
     <div class="hero-content">
       <h1 class="hero-title">
-        <span class="hero-title-main">NeuroWave AI</span>
-        <span class="hero-title-sub">Read your mind. Literally.</span>
+        <span class="hero-title-main glitch-text" data-text="NeuroWave AI">
+          <span class="code-accent">&lt;</span>NeuroWave AI<span class="code-accent">/&gt;</span>
+        </span>
+        <span class="hero-title-sub typing-animation">
+          <span class="code-comment">// </span>Read your mind. Literally.
+        </span>
       </h1>
       <p class="hero-description">
         The world's most advanced brain wave signal AI reader. Transform your thoughts into digital commands with unprecedented precision and elegance.
       </p>
+      <div class="hero-code-snippet">
+        <span class="code-line"><span class="code-keyword">const</span> <span class="code-variable">thought</span> = <span class="code-function">readBrainWave</span>();</span>
+        <span class="code-line"><span class="code-variable">device</span>.<span class="code-function">execute</span>(<span class="code-variable">thought</span>);</span>
+      </div>
       <div class="hero-cta">
         <button class="btn-primary">Pre-Order Now</button>
         <button class="btn-secondary">Learn More</button>
       </div>
-      <p class="hero-price">Starting at $999</p>
+      <p class="hero-price">Starting at <span class="price-highlight">$999</span></p>
     </div>
+    
     <div class="hero-visual">
       <div class="brain-wave-animation">
-        <div class="brain-icon">🧠</div>
-        <div class="wave-lines">
-          <div class="wave-line"></div>
-          <div class="wave-line"></div>
-          <div class="wave-line"></div>
-          <div class="wave-line"></div>
+        <div class="brain-container">
+          <div class="brain-icon">🧠</div>
+          <div class="brain-pulse-rings">
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+          </div>
+        </div>
+        <div class="advanced-wave-lines">
+          <div class="wave-line eeg-alpha" data-frequency="8-13"></div>
+          <div class="wave-line eeg-beta" data-frequency="13-30"></div>
+          <div class="wave-line eeg-gamma" data-frequency="30-100"></div>
+          <div class="wave-line eeg-theta" data-frequency="4-8"></div>
+          <div class="wave-line eeg-delta" data-frequency="0.5-4"></div>
+        </div>
+        <div class="data-stream">
+          <div class="data-bit">1</div>
+          <div class="data-bit">0</div>
+          <div class="data-bit">1</div>
+          <div class="data-bit">1</div>
+          <div class="data-bit">0</div>
         </div>
       </div>
     </div>
@@ -195,12 +234,38 @@ document.querySelector('#app').innerHTML = `
 initializeAnimations()
 setupNavigation()
 setupContactForm()
+setupParticleSystem()
+setupParallaxEffects()
 
 function initializeAnimations() {
-  // Wave animation
+  // Enhanced Wave animation with realistic EEG patterns
   const waveLines = document.querySelectorAll('.wave-line')
   waveLines.forEach((line, index) => {
-    line.style.animationDelay = `${index * 0.2}s`
+    line.style.animationDelay = `${index * 0.3}s`
+    
+    // Add realistic frequency-based animation speeds
+    const frequency = line.dataset.frequency
+    if (frequency) {
+      const avgFreq = frequency.split('-').map(Number).reduce((a, b) => a + b) / 2
+      line.style.animationDuration = `${2 - (avgFreq / 50)}s`
+    }
+  })
+
+  // Data stream animation
+  const dataBits = document.querySelectorAll('.data-bit')
+  dataBits.forEach((bit, index) => {
+    bit.style.animationDelay = `${index * 0.1}s`
+    
+    // Random binary animation
+    setInterval(() => {
+      bit.textContent = Math.random() > 0.5 ? '1' : '0'
+    }, 200 + index * 50)
+  })
+
+  // Floating elements animation
+  const floatingElements = document.querySelectorAll('.floating-element')
+  floatingElements.forEach((element, index) => {
+    element.style.animationDelay = `${index * 0.5}s`
   })
 
   // Neural network animation
@@ -215,7 +280,28 @@ function initializeAnimations() {
     connection.style.animationDelay = `${index * 0.5}s`
   })
 
-  // Scroll animations
+  // Typing animation for subtitle
+  const typingElement = document.querySelector('.typing-animation')
+  if (typingElement) {
+    const text = 'Read your mind. Literally.'
+    const comment = '// '
+    let i = 0
+    typingElement.innerHTML = `<span class="code-comment">${comment}</span>`
+    
+    const typeWriter = () => {
+      if (i < text.length) {
+        typingElement.innerHTML = `<span class="code-comment">${comment}</span>${text.substring(0, i + 1)}<span class="cursor-blink">|</span>`
+        i++
+        setTimeout(typeWriter, 100)
+      } else {
+        typingElement.innerHTML = `<span class="code-comment">${comment}</span>${text}`
+      }
+    }
+    
+    setTimeout(typeWriter, 1000)
+  }
+
+  // Scroll animations with parallax
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -232,6 +318,62 @@ function initializeAnimations() {
   document.querySelectorAll('.feature-card, .spec-category').forEach(el => {
     observer.observe(el)
   })
+}
+
+function setupParticleSystem() {
+  const particleContainer = document.querySelector('.bg-particles')
+  const particleCount = 50
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div')
+    particle.className = 'particle'
+    particle.style.left = Math.random() * 100 + '%'
+    particle.style.top = Math.random() * 100 + '%'
+    particle.style.animationDelay = Math.random() * 20 + 's'
+    particle.style.animationDuration = (Math.random() * 10 + 10) + 's'
+    particleContainer.appendChild(particle)
+  }
+}
+
+function setupParallaxEffects() {
+  let ticking = false
+  
+  function updateParallax() {
+    const scrollTop = window.pageYOffset
+    
+    // Parallax for floating elements
+    const floatingElements = document.querySelectorAll('.floating-element')
+    floatingElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.1)
+      const yPos = -(scrollTop * speed)
+      element.style.transform = `translateY(${yPos}px)`
+    })
+    
+    // Parallax for background grid
+    const bgGrid = document.querySelector('.bg-grid')
+    if (bgGrid) {
+      const yPos = scrollTop * 0.3
+      bgGrid.style.transform = `translateY(${yPos}px)`
+    }
+    
+    // Parallax for hero background effects
+    const heroEffects = document.querySelector('.hero-background-effects')
+    if (heroEffects) {
+      const yPos = scrollTop * 0.4
+      heroEffects.style.transform = `translateY(${yPos}px)`
+    }
+    
+    ticking = false
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax)
+      ticking = true
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick)
 }
 
 function setupNavigation() {
