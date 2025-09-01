@@ -21,6 +21,15 @@ document.querySelector('#app').innerHTML = `
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-video-background">
+      <iframe 
+        src="https://www.youtube.com/embed/5fpGTE3aIw0?autoplay=1&loop=1&playlist=5fpGTE3aIw0&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" 
+        title="Background video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
     <div class="hero-background-effects">
       <div class="floating-elements">
         <div class="floating-element">{ }</div>
@@ -56,14 +65,55 @@ document.querySelector('#app').innerHTML = `
     </div>
     
     <div class="hero-visual">
-      <div class="video-container">
-        <iframe 
-          src="https://www.youtube.com/embed/5fpGTE3aIw0?rel=0&modestbranding=1" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <div class="animated-brain-container">
+        <svg class="animated-brain" viewBox="0 0 400 300" width="400" height="300">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          
+          <!-- Brain outline -->
+          <path class="brain-outline" d="M80 150 C80 100, 120 80, 160 80 C180 70, 200 70, 220 80 C260 80, 300 100, 320 130 C330 140, 330 160, 320 180 C310 200, 290 220, 270 230 C250 240, 230 245, 210 240 C190 235, 170 230, 150 220 C130 210, 110 190, 100 170 C90 160, 85 155, 80 150 Z" fill="none" stroke="#00D2FF" stroke-width="2" filter="url(#glow)"/>
+          
+          <!-- Neural network nodes -->
+          <circle class="neuron neuron-1" cx="120" cy="120" r="4" fill="#FF6B6B" filter="url(#glow)"/>
+          <circle class="neuron neuron-2" cx="180" cy="110" r="5" fill="#4ECDC4" filter="url(#glow)"/>
+          <circle class="neuron neuron-3" cx="240" cy="130" r="4" fill="#00D2FF" filter="url(#glow)"/>
+          <circle class="neuron neuron-4" cx="200" cy="160" r="3" fill="#FF6B6B" filter="url(#glow)"/>
+          <circle class="neuron neuron-5" cx="150" cy="180" r="4" fill="#4ECDC4" filter="url(#glow)"/>
+          <circle class="neuron neuron-6" cx="270" cy="170" r="5" fill="#00D2FF" filter="url(#glow)"/>
+          <circle class="neuron neuron-7" cx="130" cy="200" r="3" fill="#FF6B6B" filter="url(#glow)"/>
+          <circle class="neuron neuron-8" cx="220" cy="200" r="4" fill="#4ECDC4" filter="url(#glow)"/>
+          
+          <!-- Neural connections -->
+          <line class="connection connection-1" x1="120" y1="120" x2="180" y2="110" stroke="#00D2FF" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-2" x1="180" y1="110" x2="240" y2="130" stroke="#4ECDC4" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-3" x1="240" y1="130" x2="200" y2="160" stroke="#FF6B6B" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-4" x1="200" y1="160" x2="150" y2="180" stroke="#00D2FF" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-5" x1="150" y1="180" x2="130" y2="200" stroke="#4ECDC4" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-6" x1="270" y1="170" x2="220" y2="200" stroke="#FF6B6B" stroke-width="1" opacity="0.6"/>
+          <line class="connection connection-7" x1="120" y1="120" x2="150" y2="180" stroke="#00D2FF" stroke-width="1" opacity="0.4"/>
+          <line class="connection connection-8" x1="240" y1="130" x2="270" y2="170" stroke="#4ECDC4" stroke-width="1" opacity="0.4"/>
+          
+          <!-- Pulse rings -->
+          <circle class="pulse-ring pulse-ring-1" cx="180" cy="150" r="20" fill="none" stroke="#00D2FF" stroke-width="2" opacity="0"/>
+          <circle class="pulse-ring pulse-ring-2" cx="180" cy="150" r="40" fill="none" stroke="#4ECDC4" stroke-width="1" opacity="0"/>
+          <circle class="pulse-ring pulse-ring-3" cx="180" cy="150" r="60" fill="none" stroke="#FF6B6B" stroke-width="1" opacity="0"/>
+        </svg>
+        
+        <!-- Brain activity indicators -->
+        <div class="brain-activity">
+          <div class="activity-bar"></div>
+          <div class="activity-bar"></div>
+          <div class="activity-bar"></div>
+          <div class="activity-bar"></div>
+          <div class="activity-bar"></div>
+        </div>
       </div>
     </div>
   </section>
