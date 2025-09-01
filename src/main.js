@@ -9,6 +9,7 @@ document.querySelector('#app').innerHTML = `
         <li><a href="#features">Features</a></li>
         <li><a href="#technology">Technology</a></li>
         <li><a href="#specs">Specifications</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="nav-cta">Order Now</button>
@@ -233,16 +234,104 @@ document.querySelector('#app').innerHTML = `
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about NeuroWave AI</p>
+    </div>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How does NeuroWave AI read brain waves?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>NeuroWave AI uses advanced EEG (electroencephalography) sensors with our proprietary NeuroLink™ technology to detect electrical activity in the brain. Our AI algorithms interpret these signals and translate them into digital commands with 99.7% accuracy.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Is it safe to use?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. NeuroWave AI is completely non-invasive and uses the same safe technology found in medical EEG machines. It only reads surface brain activity and does not emit any signals or interfere with brain function.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What devices can it control?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>NeuroWave AI can interface with any Bluetooth-enabled device, including smartphones, computers, smart home systems, gaming consoles, and specialized accessibility equipment. Our SDK allows developers to integrate with their applications.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long does it take to learn my brain patterns?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>The initial calibration takes about 15 minutes. However, our adaptive AI continues learning your unique patterns over the first few days of use, achieving optimal performance within a week of regular use.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What about privacy and data security?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Your privacy is our top priority. All brain wave processing happens locally on the device. No raw neural data is ever transmitted or stored in the cloud. Only anonymized performance metrics are shared to improve the overall system.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long is the battery life?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>NeuroWave AI provides 24 hours of continuous use on a single charge. The device includes fast charging capabilities - 15 minutes of charging provides 4 hours of operation. A full charge takes just 2 hours.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>When will it be available?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We're currently in the final stages of development and testing. Pre-orders will begin in Q2 2024, with the first devices shipping to early adopters in Q4 2024. Join our waitlist to be notified when pre-orders open.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="contact-content">
       <h2>Ready to Experience the Future?</h2>
       <p>Join the waitlist and be among the first to own the NeuroWave AI</p>
       
-      <form class="contact-form">
+      <form class="contact-form" id="waitlist-form">
         <div class="form-group">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit" class="btn-primary">Join Waitlist</button>
+          <input type="email" id="email-input" placeholder="Enter your email" required>
+          <button type="submit" class="btn-primary" id="submit-btn">Join Waitlist</button>
+        </div>
+        <div class="success-message" id="success-message" style="display: none;">
+          <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h3>Successfully Signed Up!</h3>
+            <p>Thank you for joining the NeuroWave AI waitlist. You'll be among the first to know when pre-orders open.</p>
+            <small>We'll send you updates about product development and early access opportunities.</small>
+          </div>
         </div>
       </form>
       
@@ -269,6 +358,7 @@ document.querySelector('#app').innerHTML = `
 initializeAnimations()
 setupNavigation()
 setupContactForm()
+setupFAQ()
 setupParticleSystem()
 setupParallaxEffects()
 
@@ -430,21 +520,96 @@ function setupNavigation() {
 }
 
 function setupContactForm() {
-  const form = document.querySelector('.contact-form')
+  const form = document.getElementById('waitlist-form')
+  const emailInput = document.getElementById('email-input')
+  const submitBtn = document.getElementById('submit-btn')
+  const successMessage = document.getElementById('success-message')
+  
+  // Mock waitlist data storage
+  let waitlistEmails = JSON.parse(localStorage.getItem('neurowave_waitlist') || '[]')
+  
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    const email = form.querySelector('input[type="email"]').value
+    const email = emailInput.value.trim()
     
-    // Simulate form submission
-    const button = form.querySelector('button')
+    // Check if email already exists in waitlist
+    if (waitlistEmails.includes(email)) {
+      showTemporaryMessage(submitBtn, 'Already on waitlist!', '#FF6B6B')
+      return
+    }
+    
+    // Simulate form submission loading
+    const originalText = submitBtn.textContent
+    submitBtn.textContent = 'Adding to waitlist...'
+    submitBtn.disabled = true
+    
+    // Mock API delay
+    setTimeout(() => {
+      // Add email to mock waitlist storage
+      waitlistEmails.push(email)
+      localStorage.setItem('neurowave_waitlist', JSON.stringify(waitlistEmails))
+      
+      // Hide form and show success message
+      form.querySelector('.form-group').style.display = 'none'
+      successMessage.style.display = 'block'
+      
+      // Add some celebration animation
+      successMessage.classList.add('animate-in')
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        form.querySelector('.form-group').style.display = 'flex'
+        successMessage.style.display = 'none'
+        successMessage.classList.remove('animate-in')
+        submitBtn.textContent = originalText
+        submitBtn.disabled = false
+        form.reset()
+      }, 5000)
+      
+    }, 1500) // 1.5 second mock delay
+  })
+  
+  function showTemporaryMessage(button, message, color) {
     const originalText = button.textContent
-    button.textContent = 'Added to Waitlist ✓'
-    button.style.background = '#34D399'
+    const originalBackground = button.style.background
+    
+    button.textContent = message
+    button.style.background = color
     
     setTimeout(() => {
       button.textContent = originalText
-      button.style.background = ''
-      form.reset()
+      button.style.background = originalBackground
     }, 2000)
+  }
+}
+
+function setupFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item')
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question')
+    const answer = item.querySelector('.faq-answer')
+    const toggle = item.querySelector('.faq-toggle')
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active')
+      
+      // Close all other FAQ items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active')
+          otherItem.querySelector('.faq-toggle').textContent = '+'
+        }
+      })
+      
+      // Toggle current item
+      if (isActive) {
+        item.classList.remove('active')
+        toggle.textContent = '+'
+      } else {
+        item.classList.add('active')
+        toggle.textContent = '−'
+      }
+    })
   })
 }
