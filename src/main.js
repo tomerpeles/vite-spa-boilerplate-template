@@ -12,7 +12,7 @@ document.querySelector('#app').innerHTML = `
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="nav-cta">Order Now</button>
+      <button class="nav-cta">🔥 Get Early Access</button>
     </div>
   </nav>
 
@@ -48,21 +48,21 @@ document.querySelector('#app').innerHTML = `
           <span class="code-accent">&lt;</span>NeuroWave AI<span class="code-accent">/&gt;</span>
         </span>
         <span class="hero-title-sub typing-animation">
-          <span class="code-comment">// </span>Read your mind. Literally.
+          <span class="code-comment">// </span>Control Reality With Your Mind
         </span>
       </h1>
       <p class="hero-description">
-        The world's most advanced brain wave signal AI reader. Transform your thoughts into digital commands with unprecedented precision and elegance.
+        <strong>Break free from keyboards and screens forever.</strong> The first consumer brain-computer interface that turns your thoughts into instant digital action. Join 50,000+ visionaries already on the waitlist.
       </p>
       <div class="hero-code-snippet">
         <span class="code-line"><span class="code-keyword">const</span> <span class="code-variable">thought</span> = <span class="code-function">readBrainWave</span>();</span>
         <span class="code-line"><span class="code-variable">device</span>.<span class="code-function">execute</span>(<span class="code-variable">thought</span>);</span>
       </div>
       <div class="hero-cta">
-        <button class="btn-primary">Pre-Order Now</button>
-        <button class="btn-secondary">Learn More</button>
+        <button class="btn-primary">🚀 Secure Your Spot - Limited Early Access</button>
+        <button class="btn-secondary">🎥 Watch 2-Min Demo</button>
       </div>
-      <p class="hero-price">Starting at <span class="price-highlight">$999</span></p>
+      <p class="hero-price">Early Bird Price: <span class="price-highlight">$799</span> <span class="original-price">$1,299</span> | <span class="urgency-text">⚡ Only 500 units left at this price</span></p>
     </div>
     
     <div class="hero-visual">
@@ -119,35 +119,103 @@ document.querySelector('#app').innerHTML = `
     </div>
   </section>
 
+  <!-- Social Proof Section -->
+  <section class="social-proof">
+    <div class="social-proof-content">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">50,000+</span>
+          <span class="stat-label">Early Adopters</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99.7%</span>
+          <span class="stat-label">Accuracy Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">< 10ms</span>
+          <span class="stat-label">Response Time</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">$2M+</span>
+          <span class="stat-label">Pre-funded</span>
+        </div>
+      </div>
+      
+      <div class="testimonials-preview">
+        <h3>"This technology will change everything"</h3>
+        <div class="testimonial-logos">
+          <span class="logo-item">TechCrunch</span>
+          <span class="logo-item">Wired</span>
+          <span class="logo-item">MIT Review</span>
+          <span class="logo-item">Forbes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="section-header">
+      <h2>Imagine Your Life When...</h2>
+      <p>Stop imagining limitations. Start living possibilities.</p>
+    </div>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">💼</div>
+        <h3>You Control Presentations With Your Mind</h3>
+        <p>Never fumble with clickers again. Think "next slide" and watch your presentation flow seamlessly. Command respect in every boardroom.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">🎮</div>
+        <h3>Gaming Becomes Pure Instinct</h3>
+        <p>React at the speed of thought. No lag between intention and action. Dominate competitive gaming with superhuman reflexes.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">♿</div>
+        <h3>Accessibility Meets Innovation</h3>
+        <p>For those with physical limitations, NeuroWave AI opens infinite possibilities. Control your environment with pure intention.</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">🏠</div>
+        <h3>Your Smart Home Reads Your Mind</h3>
+        <p>Lights dim when you think "relax." Temperature adjusts to your comfort without lifting a finger. Your home becomes an extension of your will.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Features Section -->
   <section id="features" class="features">
     <div class="section-header">
-      <h2>Revolutionary Features</h2>
-      <p>Experience the future of human-computer interaction</p>
+      <h2>Revolutionary Technology That Actually Works</h2>
+      <p>While others promise the future, we deliver it today</p>
     </div>
     
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-icon">⚡</div>
-        <h3>Real-time Processing</h3>
-        <p>Process brain signals in under 10ms with our advanced AI algorithms</p>
+        <h3>Instant Response = Instant Results</h3>
+        <p><strong>10ms response time</strong> means your thoughts become reality faster than blinking. No delays, no frustration—just pure digital telepathy.</p>
       </div>
       
       <div class="feature-card">
-        <h3>Machine Learning</h3>
-        <p>Adaptive learning that improves with every use, personalized to your unique brain patterns</p>
+        <h3>Gets Smarter Every Day (Like You Do)</h3>
+        <p><strong>Personalized AI</strong> that learns your unique brain patterns. The more you use it, the more accurate it becomes. It's like having a personal digital assistant that reads your mind.</p>
         <div class="feature-icon">🤖</div>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
-        <h3>Privacy First</h3>
-        <p>All processing happens locally. Your thoughts stay private and secure</p>
+        <h3>Your Thoughts Stay YOUR Thoughts</h3>
+        <p><strong>100% local processing.</strong> Zero cloud uploads. Zero data sharing. Your mental privacy is sacred—we built NeuroWave AI to respect that.</p>
       </div>
       
       <div class="feature-card">
-        <h3>Wireless Freedom</h3>
-        <p>Completely wireless design with 24-hour battery life and seamless connectivity</p>
+        <h3>Untethered Freedom</h3>
+        <p><strong>24-hour battery</strong> + completely wireless design = use it anywhere, anytime. From boardrooms to gaming sessions, NeuroWave AI moves with you.</p>
         <div class="feature-icon">📡</div>
       </div>
     </div>
@@ -157,8 +225,8 @@ document.querySelector('#app').innerHTML = `
   <section id="technology" class="technology">
     <div class="tech-content">
       <div class="tech-text">
-        <h2>Breakthrough Technology</h2>
-        <p>Our proprietary NeuroLink™ sensors capture the most subtle brain wave patterns with medical-grade precision. Combined with our advanced AI processing unit, we deliver thoughts-to-action in real-time.</p>
+        <h2>The Science Behind The Magic</h2>
+        <p><strong>This isn't science fiction.</strong> Our proprietary NeuroLink™ sensors use medical-grade EEG technology combined with machine learning algorithms trained on millions of brain patterns. The result? The most accurate consumer brain-computer interface ever created.</p>
         
         <div class="tech-specs">
           <div class="spec-item">
@@ -314,23 +382,47 @@ document.querySelector('#app').innerHTML = `
     </div>
   </section>
 
+  <!-- Urgency Section -->
+  <section class="urgency-section">
+    <div class="urgency-content">
+      <h2>⚡ Limited Time: Early Bird Pricing Ends Soon</h2>
+      <div class="countdown-container">
+        <p><strong>Only 500 units left at $799</strong> (Regular price: $1,299)</p>
+        <div class="urgency-stats">
+          <div class="urgency-stat">
+            <span class="big-number">72</span>
+            <span class="small-text">Hours Left</span>
+          </div>
+          <div class="urgency-stat">
+            <span class="big-number">500</span>
+            <span class="small-text">Units Remaining</span>
+          </div>
+          <div class="urgency-stat">
+            <span class="big-number">50K+</span>
+            <span class="small-text">In Waitlist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="contact-content">
-      <h2>Ready to Experience the Future?</h2>
-      <p>Join the waitlist and be among the first to own the NeuroWave AI</p>
+      <h2>🚀 Secure Your NeuroWave AI Now</h2>
+      <p><strong>Don't let someone else get YOUR spot.</strong> Join 50,000+ visionaries already secured for early access.</p>
       
       <form class="contact-form" id="waitlist-form">
         <div class="form-group">
-          <input type="email" id="email-input" placeholder="Enter your email" required>
-          <button type="submit" class="btn-primary" id="submit-btn">Join Waitlist</button>
+          <input type="email" id="email-input" placeholder="Enter your email to secure early access" required>
+          <button type="submit" class="btn-primary" id="submit-btn">🔥 CLAIM MY EARLY BIRD SPOT</button>
         </div>
         <div class="success-message" id="success-message" style="display: none;">
           <div class="success-content">
-            <div class="success-icon">✓</div>
-            <h3>Successfully Signed Up!</h3>
-            <p>Thank you for joining the NeuroWave AI waitlist. You'll be among the first to know when pre-orders open.</p>
-            <small>We'll send you updates about product development and early access opportunities.</small>
+            <div class="success-icon">🎉</div>
+            <h3>Welcome to the Future!</h3>
+            <p><strong>You're IN!</strong> Your early bird spot is secured. You'll get exclusive access to NeuroWave AI before anyone else.</p>
+            <small><strong>Next:</strong> Watch for our email with your personal access code and exclusive demo footage.</small>
           </div>
         </div>
       </form>
@@ -408,7 +500,7 @@ function initializeAnimations() {
   // Typing animation for subtitle
   const typingElement = document.querySelector('.typing-animation')
   if (typingElement) {
-    const text = 'Read your mind. Literally.'
+    const text = 'Control Reality With Your Mind'
     const comment = '// '
     let i = 0
     typingElement.innerHTML = `<span class="code-comment">${comment}</span>`

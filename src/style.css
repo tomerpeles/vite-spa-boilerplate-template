@@ -32,6 +32,11 @@
   --shadow-large: 0 20px 25px -5px rgba(0, 210, 255, 0.3), 0 10px 10px -5px rgba(0, 210, 255, 0.1);
   --shadow-glow: 0 0 20px rgba(0, 210, 255, 0.5);
   --shadow-neural: 0 0 30px rgba(255, 107, 107, 0.3);
+  
+  /* New colors for enhanced sections */
+  --urgency-color: #FF3B30;
+  --success-bg: #2D5A27;
+  --warning-bg: #7C2D12;
 }
 
 body {
@@ -1685,5 +1690,339 @@ body {
   
   .success-message h3 {
     font-size: 1.6rem;
+  }
+}
+
+/* Social Proof Section */
+.social-proof {
+  padding: 80px 24px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.social-proof-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-accent);
+  text-shadow: 0 0 20px var(--text-accent);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.testimonials-preview h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.testimonial-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.logo-item {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.logo-item:hover {
+  opacity: 1;
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 120px 24px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.benefits::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(0, 210, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.benefits-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.benefit-item {
+  background: var(--bg-secondary);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-brain);
+}
+
+.benefit-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--text-accent);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.benefit-item h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.benefit-item p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Urgency Section */
+.urgency-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, var(--warning-bg) 0%, #991B1B 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.urgency-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 59, 48, 0.2) 0%, transparent 70%);
+  animation: urgencyPulse 3s ease-in-out infinite;
+}
+
+@keyframes urgencyPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.urgency-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.urgency-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #FFF;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.countdown-container p {
+  font-size: 1.3rem;
+  color: #FFF;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.urgency-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.urgency-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.big-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  color: #FFF;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.small-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Enhanced Hero Price */
+.hero-price {
+  font-size: 1.2rem;
+  margin-top: 30px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.price-highlight {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--success-color);
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 20px var(--success-color);
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  opacity: 0.7;
+  margin-left: 10px;
+}
+
+.urgency-text {
+  color: var(--urgency-color);
+  font-weight: 700;
+  animation: urgencyBlink 2s infinite;
+  margin-left: 15px;
+}
+
+@keyframes urgencyBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .testimonial-logos {
+    gap: 20px;
+  }
+  
+  .logo-item {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .urgency-section h2 {
+    font-size: 2rem;
+  }
+  
+  .urgency-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .big-number {
+    font-size: 2rem;
+  }
+  
+  .hero-price {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .price-highlight {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .urgency-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial-logos {
+    flex-direction: column;
+    gap: 15px;
   }
 }
